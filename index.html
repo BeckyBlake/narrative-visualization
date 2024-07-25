@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Narrative Visualization</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+  <style>
+    circle {
+      /* fill: lightblue;  */
+      stroke: black;}
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .navigation {
+      margin-top: 20px;
+    }
+    svg {
+      display: block;
+      margin: 0 auto;
+    }
+    .tooltip {
+      position: absolute;
+      text-align: center;
+      width: auto;
+      height: auto;
+      padding: 8px;
+      font: 12px sans-serif;
+      background: rgb(216, 216, 216);
+      /* create black border */
+      border: 1px solid black;
+      border-radius: 8px;
+      pointer-events: none;
+      box-shadow: 2px 2px 2px rgba(124, 124, 124, 0.5);
+    }
+
+    .legend {
+      font-size: 12px;
+    }
+    .legend rect {
+      stroke-width: 2;
+    }
+  </style>
+</head>
+<body onload='init()'>
+  <div id="scene-container">
+    <svg width="600" height="600" id="example1"></svg>
+  </div>
+  <div class="navigation">
+    <button onclick="previousScene()">Previous</button>
+    <button onclick="nextScene()">Next</button>
+
+    <label id="sliderTitle" class="label" style="display:none;">Cylinder Threshold: </label>
+    <input type="range" id="cylinderSlider" min="0" max="12" value="0" step="1" style="display:none;">
+    <label id="sliderLabel" class="label" style="display:none;">Cylinder Threshold: </label>
+
+    <label id="fuelDropdownLabel" class="label" style="display:none;">Select Fuel Type:</label>
+    <select id="fuelDropdown" style="display:none;">
+      <option value="All">All</option>
+      <option value="Gasoline">Gasoline</option>
+      <option value="Diesel">Diesel</option>
+      <option value="Electricity">Electric</option>
+    </select>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
